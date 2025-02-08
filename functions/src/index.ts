@@ -24,7 +24,7 @@ export const createPaymentIntents = functions.https.onRequest(async (request: Re
     const paymentIntent = await stripe.paymentIntents.create({
       amount,
       currency,
-      payment_method_types: ["card", "apple_pay"],
+      payment_method_types: ["card"],
     })
 
     response.json({clientSecret: paymentIntent.client_secret});
